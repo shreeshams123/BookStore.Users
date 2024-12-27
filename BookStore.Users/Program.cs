@@ -12,7 +12,6 @@ using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddDbContext<UserDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));  
@@ -21,13 +20,15 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepo,UserRepo>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IAdminRepo, AdminRepo>();
 builder.Services.AddScoped<TokenHelper>();
 
 builder.Services.AddSingleton(new ConnectionFactory
 {
-    HostName = "localhost", // RabbitMQ hostname
-    UserName = "guest",     // Default username
-    Password = "guest"      // Default password
+    HostName = "localhost", 
+    UserName = "guest",     
+    Password = "guest"      
 });
 
 builder.Services.AddScoped<IRabbitMqService, RabbitMqService>();
@@ -96,7 +97,6 @@ builder.Services.AddAuthentication(options =>
 
 });
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -121,7 +121,7 @@ builder.Services.AddSwaggerGen(options =>
             new string[] {}
         }
     });
-}); builder.Services.AddSwaggerGen();
+});
 
 var app = builder.Build();
 

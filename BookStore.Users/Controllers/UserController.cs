@@ -13,7 +13,7 @@ namespace BookStore.Users.Controllers
         {
             _userService = userService;
         }
-        [HttpPost("register")]
+        [HttpPost]
 
         public async Task<IActionResult> RegisterUser(RegisterUserDto userdto)
         {

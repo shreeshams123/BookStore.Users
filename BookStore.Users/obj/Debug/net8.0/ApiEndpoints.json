@@ -1,5 +1,53 @@
 [
   {
+    "ContainingType": "BookStore.Users.Controllers.AdminController",
+    "Method": "RegisterAdmin",
+    "RelativePath": "api/admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "adminDto",
+        "Type": "BookStore.Users.Models.DTOs.RegisterAdminDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore.Users.Controllers.AdminController",
+    "Method": "LoginAdmin",
+    "RelativePath": "api/admin/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "adminDto",
+        "Type": "BookStore.Users.Models.DTOs.LoginUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore.Users.Controllers.UserController",
+    "Method": "RegisterUser",
+    "RelativePath": "api/user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userdto",
+        "Type": "BookStore.Users.Models.DTOs.RegisterUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookStore.Users.Controllers.UserController",
     "Method": "ForgotPassword",
     "RelativePath": "api/user/forgot-password",
@@ -26,22 +74,6 @@
       {
         "Name": "userdto",
         "Type": "BookStore.Users.Models.DTOs.LoginUserDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookStore.Users.Controllers.UserController",
-    "Method": "RegisterUser",
-    "RelativePath": "api/user/register",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userdto",
-        "Type": "BookStore.Users.Models.DTOs.RegisterUserDto",
         "IsRequired": true
       }
     ],

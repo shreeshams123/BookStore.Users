@@ -94,7 +94,7 @@ namespace BookStore.Users.Services
             bool isValidPassword = PasswordHelper.VerifyPassword(userdto.Password, result.Password);
             if (isValidPassword)
             {
-                var token = _tokenHelper.GenerateJwtToken(result);
+                var token = _tokenHelper.GenerateJwtToken(result.Email,result.UserId,result.Role);
                 var newdto = new LoginResponseDto { Name = result.Name, Email = userdto.Email, Token = token };
                 return new ApiResponse<LoginResponseDto> { Success = true, Message = "Login Successful", Data = newdto };
             }

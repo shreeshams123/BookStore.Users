@@ -174,3 +174,4 @@ D:\BookStore.Users\BookStore.Users\obj\Debug\net8.0\BookStore.Users.pdb
 D:\BookStore.Users\BookStore.Users\obj\Debug\net8.0\BookStore.Users.genruntimeconfig.cache
 D:\BookStore.Users\BookStore.Users\obj\Debug\net8.0\ref\BookStore.Users.dll
 D:\BookStore.Users\BookStore.Users\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\BookStore.Users\BookStore.Users\obj\Debug\net8.0\BookStore.Users.sourcelink.json

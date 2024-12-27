@@ -16,18 +16,16 @@ namespace BookStore.Users.Services
             _userRepo = userRepo;
             _configuration = configuration;
         }
-        public string GenerateJwtToken(User user)
+        public string GenerateJwtToken(string email, int id, string role)
         {
-            string userRole = user.Role; 
-
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
-            new Claim(ClaimTypes.Role, userRole) 
+            new Claim(ClaimTypes.Email, email),
+            new Claim(ClaimTypes.NameIdentifier, id.ToString()),
+            new Claim(ClaimTypes.Role, role) 
             };
 
             var token = new JwtSecurityToken(
