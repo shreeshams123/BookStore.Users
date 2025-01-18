@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BookStore.Users.Services
 {
-    public class TokenHelper
+    public class TokenHelper: ITokenHelper
     {
         private readonly IUserRepo _userRepo;
         private readonly IConfiguration _configuration;
@@ -16,7 +16,7 @@ namespace BookStore.Users.Services
             _userRepo = userRepo;
             _configuration = configuration;
         }
-        public string GenerateJwtToken(string email, int id, string role)
+        public virtual string GenerateJwtToken(string email, int id, string role)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -39,7 +39,7 @@ namespace BookStore.Users.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public string GeneratePasswordResetToken(User user)
+        public virtual string GeneratePasswordResetToken(User user)
         {
             if (user == null || string.IsNullOrEmpty(user.Email))
             {
@@ -64,7 +64,7 @@ namespace BookStore.Users.Services
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-        public int GetUserIdFromPasswordResetToken(string token)
+        public virtual int GetUserIdFromPasswordResetToken(string token)
         {
 
             if (string.IsNullOrEmpty(token))
